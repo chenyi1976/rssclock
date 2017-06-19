@@ -1,0 +1,28 @@
+html {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#clock {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 400%;
+    background-color: black;
+    color: white;
+}
+
+/*#myCarousel {*/
+    /*display: block;*/
+    /*!*width: 100%;*!*/
+    /*text-align: center;*/
+    /*font-size: 200%;*/
+    /*color: white;*/
+/*}*/
+
+.img-center {
+    margin: auto;
+}
