@@ -11,33 +11,14 @@ function updateTime() {
 }
 
 function generateCarousel() {
-    $.ajax({
-        url: 'https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Fwww.ozbargain.com.au%2Ffeed',
-        type: "GET",
-        dataType: "jsonp",
-        success: function (data) {
-            $("#deal_content").html('');
-            $.each(data.items, function (i, field) {
-                $("#deal_content").append('<div>', field.title, '</div>');
-            });
-            $("#progress-bar").text("Refreshed at " + moment().format("h:mm:ss"));
-        },
-        error: function () {
-            $("#progress-bar").text("Failed at " + moment().format("h:mm:ss"));
-        }
-    });
-    // , function (data) {
-    //     $(data).find("item").each(function () { // or "item" or whatever suits your feed
-    //         var el = $(this);
-    //
-    //         console.log("------------------------");
-    //         console.log("title      : " + el.find("title").text());
-    //         console.log("link     : " + el.find("link").text());
-    //         console.log("media:thumbnail: " + el.find("media:thumbnail").text());
-    //     });
-    // });
-    // myCarouselHtml += '<button>hhihihi</button>';
-    // myCarouselHtml += 'hhihihi';
-    // $('#testCarousel').html(myCarouselHtml);
+    $.getJSON('http://www.whateverorigin.org/get?url=' + encodeURIComponent('https://www.ozbargain.com.au/deals/feed') + '&callback=?', function (data) {
+        $("#deal_content").html('');
 
+        var items = $($.parseXML( data.contents )).find('item')
+
+        $.each(items, function (i, field) {
+            $("#deal_content").append('<li>' + field.children[0].textContent + '</li>');
+        });
+        $("#progress-bar").text("Refreshed at " + moment().format("h:mm:ss"));
+    });
 }
