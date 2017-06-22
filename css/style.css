@@ -26,3 +26,16 @@ html {
 .img-center {
     margin: auto;
 }
+
+.item_title {
+    font-weight: bold;
+    text-align: center;
+}
+
+.item_link {
+    text-align: center;
+}
+
+.item_description {
+    /*text-align: center;*/
+}
