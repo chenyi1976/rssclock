@@ -30,6 +30,7 @@ html {
 .item_title {
     font-weight: bold;
     text-align: center;
+    font-size: 200%;
 }
 
 .item_link {
@@ -38,4 +39,13 @@ html {
 
 .item_description {
     /*text-align: center;*/
+}
+
+.carousel-indicators {
+    top:5px;
+}
+
+.carousel-inner {
+    padding-top:30px;
+    background-color: lightgrey;
 }
